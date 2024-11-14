@@ -1,9 +1,10 @@
-import _App from './investment-calculator/_App'
+import App_ from "./investment-calculator/App_"
+
 
 const App = () => {
   return (
     <div>
-      <_App />
+     
     </div>
   )
 }
