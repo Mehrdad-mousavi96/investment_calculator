@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 const UserInput = () => {
+
+    const [] = useState({
+        initialInvestment: 1000,
+        annualInvestment: 1200,
+        expectedReturn: 6,
+        duration: 10
+    })
+
   return (
     <section id="user-input">
       <div className="input-group">
