@@ -1,9 +1,9 @@
-import Main from './investment-calculator/Main'
+import _App from './investment-calculator/_App'
 
 const App = () => {
   return (
     <div>
-      <Main />
+      <_App />
     </div>
   )
 }

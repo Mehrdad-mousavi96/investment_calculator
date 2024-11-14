@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Results = () => {
+const Results = ({input}) => {
+
+  console.log(input);
+  
+
   return (
     <div>Results</div>
   )

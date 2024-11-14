@@ -1,21 +1,6 @@
-import React, { useState } from "react";
 
-const UserInput = () => {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 1000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10,
-  });
+const UserInput = ({onChange, userInput}) => {
 
-  const handleChagnes = (inputIdentifires, newValue) => {
-    setUserInput((prevUserInput) => {
-      return {
-        ...userInput,
-        [inputIdentifires]: newValue,
-      };
-    });
-  };
 
   return (
     <section id="user-input">
@@ -26,7 +11,7 @@ const UserInput = () => {
             type="number"
             required
             value={userInput.initialInvestment}
-            onChange={(e) => handleChagnes("initialInvestment", e.target.value)}
+            onChange={(e) => onChange("initialInvestment", e.target.value)}
           />
         </p>
 
@@ -36,7 +21,7 @@ const UserInput = () => {
             type="number"
             required
             value={userInput.annualInvestment}
-            onChange={(e) => handleChagnes("annualInvestment", e.target.value)}
+            onChange={(e) => onChange("annualInvestment", e.target.value)}
           />
         </p>
       </div>
@@ -48,7 +33,7 @@ const UserInput = () => {
             type="number"
             required
             value={userInput.expectedReturn}
-            onChange={(e) => handleChagnes("expectedReturn", e.target.value)}
+            onChange={(e) => onChange("expectedReturn", e.target.value)}
           />
         </p>
 
@@ -58,7 +43,7 @@ const UserInput = () => {
             type="number"
             required
             value={userInput.duration}
-            onChange={(e) => handleChagnes("duration", e.target.value)}
+            onChange={(e) => onChange("duration", e.target.value)}
           />
         </p>
       </div>
