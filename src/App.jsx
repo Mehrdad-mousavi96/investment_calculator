@@ -1,4 +1,4 @@
-import App_ from "./Stephen Grider/App_"
+import App_ from "./Stephen Grider/pics project/App_"
 
 
 const App = () => {
