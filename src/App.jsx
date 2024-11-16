@@ -1,10 +1,11 @@
-import App_ from "./investment-calculator/App_"
+import App_ from "./Stephen Grider/App_"
 
 
 const App = () => {
+
   return (
     <div>
-     
+      <App_ />
     </div>
   )
 }
