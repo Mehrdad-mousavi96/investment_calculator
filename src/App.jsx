@@ -1,4 +1,4 @@
-import App_ from "./Stephen Grider/book app/App_"
+import App_ from "./stephen/booking/App_"
 
 
 const App = () => {
