@@ -1,26 +1,15 @@
-import React from "react";
 import BookShow from "./BookShow";
 
 const BookList = ({ books, onDelete, onEdit }) => {
   return (
-    <div
-      style={{
-        margin: "20px",
-        backgroundColor: "lightgray",
-        display: "grid",
-        justifyContent: "start",
-        flex: "row",
-      }}
-    >
+    <ul>
       {books.map((book) => (
-        <BookShow
-          onEdit={onEdit}
-          key={book.id}
-          book={book}
-          onDelete={onDelete}
-        />
+        <li key={book.id}>
+          <BookShow book={book} onDelete={onDelete} onEdit={onEdit} />
+          <hr />
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

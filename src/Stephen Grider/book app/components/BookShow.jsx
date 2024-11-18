@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import BookEdit from "./BookEdit";
+import { useState } from "react";
+import EditBook from "./EditBook";
 
 const BookShow = ({ book, onDelete, onEdit }) => {
   const [showEdit, setShowEdit] = useState(false);
@@ -10,27 +10,10 @@ const BookShow = ({ book, onDelete, onEdit }) => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        margin: "20px",
-        border: "2px solid black",
-        padding: "5px",
-      }}
-    >
-      {showEdit ? (
-        <BookEdit onSubmit={handleSubmit} book={book} />
-      ) : (
-        <h3>{book.title}</h3>
-      )}
-
-      <div style={{ margin: "0 10px", justifyContent: "start" }}>
-        <div>
-          {!showEdit && <button onClick={() => setShowEdit(true)}>Edit</button>}
-        </div>
-        <button onClick={() => onDelete(book.id)}>Delete</button>
-      </div>
+    <div>
+      {showEdit ? <EditBook book={book} onSubmit={handleSubmit} /> : book.title}
+      {!showEdit && <button onClick={() => setShowEdit(true)}>Edit</button>}
+      <button onClick={() => onDelete(book.id)}>Delete</button>
     </div>
   );
 };

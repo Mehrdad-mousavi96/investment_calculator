@@ -1,49 +1,53 @@
-import React, { useState } from 'react'
-import BookCreate from './components/BookCreate'
-import BookList from './components/BookList'
+import { useState } from "react";
+import BookList from "./components/BookList";
+import CreateBook from "./components/CreateBook";
 
-const App_ = () => {
-    const [books, setBooks] = useState([])
+const App = () => {
+  const [books, setBooks] = useState([]);
 
-    const editBookById = (id, newTitle) => {
-      const updatedBooks = books.map(book => {
+  const handleCreateBook = (title) => {
+    const updatedBooks = [
+      ...books,
+      {
+        id: Math.random() * 999,
+        title,
+      },
+    ];
 
-        if (book.id === id) {
-          return {
-            ...book, title: newTitle
-          }
-          return book
-        }
+    setBooks(updatedBooks);
+  };
 
-      })
-      setBooks(updatedBooks)
-    }
+  const handleDeleteBook = (id) => {
+    const updatedBooks = books.filter((book) => {
+      return book.id !== id;
+    });
 
-    const deleteBookById = (id) => {
-      const updatedBooks = books.filter((book) => {
-        return book.id !== id 
-      })
-      setBooks(updatedBooks)
-    }
+    setBooks(updatedBooks);
+  };
 
-    const handleCreateBook = (title) => {
-        
-        const updatedBooks = [...books, {id: Math.random() * 999, title}]
-        setBooks(updatedBooks)
-    }
+  const handleEditbook = (id, newTitle) => {
+    const updatedBooks = books.map((book) => {
+      if (book.id === id) {
+        return {
+          ...book,
+          title: newTitle,
+        };
+      }
+    });
 
-     
+    setBooks(updatedBooks);
+  };
+
   return (
     <div>
-
-        <div>
-        <BookCreate onCreate={handleCreateBook} />
-        <BookList books={books} onDelete={deleteBookById} onEdit={editBookById}  />
-        </div>
-
+      <CreateBook onCreate={handleCreateBook} />
+      <br />
+      <BookList
+        books={books}
+        onDelete={handleDeleteBook}
+        onEdit={handleEditbook}
+      />
     </div>
-  )
-}
-
-export default App_
-
+  );
+};
+export default App;
