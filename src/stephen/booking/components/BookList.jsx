@@ -1,12 +1,11 @@
-import { useContext } from "react";
+import {useBooksContext} from "../hooks/use-books-ocntext";
 import BookShow from "./BookShow";
-import BooksContext from "../context/books";
+
 
 const BookList = () => {
 
-  const {books} = useContext(BooksContext)
-
-  console.log(books)
+  const {books} = useBooksContext();
+  console.log(useBooksContext())
 
   return (
     <ul>
